@@ -1,0 +1,8 @@
+resources:
+- all.yaml
+patches:
+- path: ./patches/1674253108_remediate_SecurityContext_runAsUser_for_workload_security-playground.yaml
+  target:
+    kind: Deployment
+    name: security-playground
+    namespace: default
