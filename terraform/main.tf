@@ -1,4 +1,4 @@
-
+/*
 resource "aws_vpc" "main" {
   cidr_block = "10.0.0.0/16"
   tags = {
@@ -65,7 +65,7 @@ resource "aws_subnet" "main_database_1" {
   cidr_block = "10.0.128.0/24"
 
   tags = {
-    Name = "Main Public 1"
+    Name = "main_database_1"
   }
 }
 
@@ -86,10 +86,11 @@ resource "aws_subnet" "main_database_3" {
     Name = "main_database_3"
   }
 }
+*/
 
-resource "aws_security_group" "server_access" {
-  vpc_id      = aws_vpc.main.id
-  name = "server_access"
+resource "aws_security_group" "sko_compliance_violation" {
+  vpc_id      = module.vpc.vpc_id
+  name = "sko_compliance_violation"
   ingress {
     from_port        = 0
     to_port          = 0
@@ -104,6 +105,6 @@ resource "aws_security_group" "server_access" {
     cidr_blocks      = ["0.0.0.0/0"]
   }
   tags = {
-    Name = "server_access"
+    Name = "sko_compliance_violation"
   }
 }
