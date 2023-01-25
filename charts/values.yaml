@@ -9,6 +9,8 @@ image:
   tag: latest
   pullPolicy: IfNotPresent
 
+namespaceOverride: "security-playground"
+
 imagePullSecrets: []
 nameOverride: ""
 fullnameOverride: ""

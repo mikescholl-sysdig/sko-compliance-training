@@ -2,6 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: {{ include "security-playground.fullname" . }}
+  namespace: {{ .Values.namespaceOverride }}
   labels:
 {{ include "security-playground.labels" . | indent 4 }}
 spec:
