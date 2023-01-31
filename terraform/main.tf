@@ -1,4 +1,3 @@
-
 resource "random_id" "sko_bucket" {
   byte_length = 8
 }
@@ -16,6 +15,8 @@ resource "aws_s3_bucket_public_access_block" "sko_bucket" {
   restrict_public_buckets = false
 }
 
+/*
+ToDo: Team needs to make changes to the check before implementing this violation.
 resource "aws_security_group" "sko_compliance_violation" {
   vpc_id      = module.vpc.vpc_id
   name = "sko_compliance_violation"
@@ -36,3 +37,4 @@ resource "aws_security_group" "sko_compliance_violation" {
     Name = "sko_compliance_violation"
   }
 }
+*/
