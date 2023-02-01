@@ -18,17 +18,19 @@ spec:
         nodeAffinity:
           requiredDuringSchedulingIgnoredDuringExecution:
             nodeSelectorTerms:
-              - matchExpressions:
-                  - key: kubernetes.io/arch
-                    operator: In
-                    values:
-                      - amd64
+            - matchExpressions:
+              - key: kubernetes.io/arch
+                operator: In
+                values:
+                - amd64
       containers:
-        - name: security-playground
-          image: ghcr.io/mikescholl-sysdig/security-playground:latest
-          imagePullPolicy: Always
-          ports:
-            - containerPort: 8080
+      - name: security-playground
+        image: ghcr.io/mikescholl-sysdig/security-playground:latest
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 8080
+        securityContext:
+          runAsUser: 1000
 
 ---
 apiVersion: v1
